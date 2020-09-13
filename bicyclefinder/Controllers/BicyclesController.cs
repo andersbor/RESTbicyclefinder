@@ -14,8 +14,8 @@ namespace bicyclefinder.Controllers
     {
         private static readonly List<Bicycle> Bicycles = new List<Bicycle>
         {
-            new Bicycle {Id = 1, Brand = "Kildemoes", Colors = "Silver black", FrameNumber = "1WE31", KindOfBicycle = "Man", MissingFound = "lost", Place = "Roskilde", Date = "20200913", UserId = 1},
-            new Bicycle {Id=2, Brand = "Raleigh", Colors="Orange", FrameNumber = "2WD3S", KindOfBicycle = "Woman", MissingFound = "lost", Place = "Roskilde", Date = "20200913", UserId = 2}
+            new Bicycle {Id = 1, Brand = "Kildemoes", Colors = "Silver black", FrameNumber = "1WE31", KindOfBicycle = "Man", MissingFound = "missing", Place = "Roskilde", Date = "20200913", UserId = 1},
+            new Bicycle {Id=2, Brand = "Raleigh", Colors="Orange", FrameNumber = "2WD3S", KindOfBicycle = "Woman", MissingFound = "found", Place = "Roskilde", Date = "20200913", UserId = 2}
         };
 
         private static int _nextId = Bicycles.Count + 1;
