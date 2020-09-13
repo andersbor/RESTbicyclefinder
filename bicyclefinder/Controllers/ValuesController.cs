@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace bicyclefinder.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
+    [ApiController] // TODO remove ValuesController
     public class ValuesController : ControllerBase
     {
         // GET api/values

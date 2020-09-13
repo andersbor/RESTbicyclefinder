@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace bicyclefinder.Controllers
+﻿namespace bicyclefinder.Controllers
 {
     public class Bicycle
     {
@@ -16,7 +11,7 @@ namespace bicyclefinder.Controllers
         public string Date { get; set; }
         public int UserId { get; set; }
 
-        public string LostFound { get; set; }
+        public string MissingFound { get; set; }
 
         public override string ToString()
         {

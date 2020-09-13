@@ -14,8 +14,8 @@ namespace bicyclefinder.Controllers
     {
         private static readonly List<Bicycle> Bicycles = new List<Bicycle>
         {
-            new Bicycle {Id = 1, Brand = "Kildemoes", Colors = "Silver black", FrameNumber = "1WE31", KindOfBicycle = "Man", LostFound = "lost", Place = "Roskilde", Date = "20200913", UserId = 1},
-            new Bicycle {Id=2, Brand = "Raleigh", Colors="Orange", FrameNumber = "2WD3S", KindOfBicycle = "Woman", LostFound = "lost", Place = "Roskilde", Date = "20200913", UserId = 2}
+            new Bicycle {Id = 1, Brand = "Kildemoes", Colors = "Silver black", FrameNumber = "1WE31", KindOfBicycle = "Man", MissingFound = "lost", Place = "Roskilde", Date = "20200913", UserId = 1},
+            new Bicycle {Id=2, Brand = "Raleigh", Colors="Orange", FrameNumber = "2WD3S", KindOfBicycle = "Woman", MissingFound = "lost", Place = "Roskilde", Date = "20200913", UserId = 2}
         };
 
         private static int _nextId = Bicycles.Count + 1;
@@ -29,10 +29,10 @@ namespace bicyclefinder.Controllers
         
         // GET: api/<BicyclesController>
         [HttpGet("lost")]
-        public IEnumerable<Bicycle> GetAllLost()
+        public IEnumerable<Bicycle> GetAllMissing()
         {
             return Bicycles.FindAll(bicycle =>
-                bicycle.LostFound.Equals("lost", StringComparison.OrdinalIgnoreCase));
+                bicycle.MissingFound.Equals("lost", StringComparison.OrdinalIgnoreCase));
         }
         
         // GET: api/<BicyclesController>
@@ -40,7 +40,7 @@ namespace bicyclefinder.Controllers
         public IEnumerable<Bicycle> GetAllFound()
         {
             return Bicycles.FindAll(bicycle =>
-                bicycle.LostFound.Equals("found", StringComparison.OrdinalIgnoreCase));
+                bicycle.MissingFound.Equals("found", StringComparison.OrdinalIgnoreCase));
         }
 
         
@@ -55,7 +55,11 @@ namespace bicyclefinder.Controllers
         [HttpPost]
         public Bicycle Post([FromBody] Bicycle value)
         {
+            // TODO extra generator method. Call from static list
             value.Id = _nextId++;
+            DateTime now = DateTime.Now;
+            string nowStr = now.ToString("yyyy-MM-dd");
+            value.Date = nowStr;
             Bicycles.Add(value);
             return value;
         }
