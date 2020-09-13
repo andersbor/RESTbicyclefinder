@@ -22,12 +22,19 @@ namespace bicyclefinder.Controllers
 
         // GET: api/<BicyclesController>
         [HttpGet]
-        public IEnumerable<Bicycle> Get()
+        public IEnumerable<Bicycle> GetAll()
         {
             return Bicycles;
         }
-        
-        // GET: api/<BicyclesController>
+
+        [HttpGet("{missingFound}")]
+        public IEnumerable<Bicycle> GetMissingOrFound(string missingFound)
+        {
+            return Bicycles.FindAll(bicycle => 
+                bicycle.MissingFound.Equals(missingFound, StringComparison.OrdinalIgnoreCase));
+        }
+
+        /*/ GET: api/<BicyclesController>
         [HttpGet("lost")]
         public IEnumerable<Bicycle> GetAllMissing()
         {
@@ -41,11 +48,11 @@ namespace bicyclefinder.Controllers
         {
             return Bicycles.FindAll(bicycle =>
                 bicycle.MissingFound.Equals("found", StringComparison.OrdinalIgnoreCase));
-        }
+        }*/
 
         
         // GET api/<BicyclesController>/5
-        [HttpGet("{id}")]
+        [HttpGet("id/{id}")]
         public Bicycle Get(int id)
         {
             return Bicycles.FirstOrDefault(bicycle => bicycle.Id == id);
