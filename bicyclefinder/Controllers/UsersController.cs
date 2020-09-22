@@ -50,10 +50,10 @@ namespace bicyclefinder.Controllers
         {
         }*/
 
-        /*// DELETE api/<UsersController>/5
+        // DELETE api/<UsersController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-        }*/
+        }
     }
 }

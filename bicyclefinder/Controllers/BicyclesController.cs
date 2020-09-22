@@ -15,7 +15,9 @@ namespace bicyclefinder.Controllers
         private static readonly List<Bicycle> Bicycles = new List<Bicycle>
         {
             new Bicycle {Id = 1, Brand = "Kildemoes", Colors = "Silver black", FrameNumber = "1WE31", KindOfBicycle = "Man", MissingFound = "missing", Place = "Roskilde", Date = "20200913", UserId = 1},
-            new Bicycle {Id=2, Brand = "Raleigh", Colors="Orange", FrameNumber = "2WD3S", KindOfBicycle = "Woman", MissingFound = "found", Place = "Roskilde", Date = "20200913", UserId = 2}
+            new Bicycle {Id=2, Brand = "Raleigh", Colors="Orange", FrameNumber = "2WD3S", KindOfBicycle = "Woman", MissingFound = "found", Place = "Roskilde", Date = "20200913", UserId = 2},
+            new Bicycle {Id=3, Brand = "Raleigh", Colors="Orange", FrameNumber = "12ERR", KindOfBicycle = "Child", MissingFound = "found", Place = "Ringsted", Date = "20200913", UserId = 1},
+            new Bicycle {Id=4, Brand = "Chartour", Colors="Pink", FrameNumber = "2WD3S", KindOfBicycle = "Woman", MissingFound = "missing", Place = "Roskilde", Date = "20200913", UserId = 2}
         };
 
         private static int _nextId = Bicycles.Count + 1;
@@ -31,6 +33,7 @@ namespace bicyclefinder.Controllers
         public IEnumerable<Bicycle> GetMissingOrFound(string missingFound)
         {
             return Bicycles.FindAll(bicycle => 
+                bicycle.MissingFound != null && 
                 bicycle.MissingFound.Equals(missingFound, StringComparison.OrdinalIgnoreCase));
         }
 
