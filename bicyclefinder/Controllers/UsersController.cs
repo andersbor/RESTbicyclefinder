@@ -35,6 +35,12 @@ namespace bicyclefinder.Controllers
             return Users.FirstOrDefault(user => user.Id == id);
         }
 
+        [HttpGet("test/test")]
+        public string GoForIt()
+        {
+            return "test/test";
+        }
+
         // POST api/<UsersController>
         [HttpPost]
         public User Post([FromBody] User value)
@@ -50,10 +56,6 @@ namespace bicyclefinder.Controllers
         {
         }*/
 
-        // DELETE api/<UsersController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        
     }
 }
