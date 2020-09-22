@@ -35,11 +35,11 @@ namespace bicyclefinder.Controllers
             return Users.FirstOrDefault(user => user.Id == id);
         }
 
-        [HttpGet("test/test")]
+        /*[HttpGet("test/test")]
         public string GoForIt()
         {
             return "test/test";
-        }
+        }*/
 
         // POST api/<UsersController>
         [HttpPost]
