@@ -35,6 +35,13 @@ namespace bicyclefinder.Controllers
             return Users.FirstOrDefault(user => user.Id == id);
         }
 
+        // GET api/<UsersController>/5
+        [HttpGet("firebaseuserid/{id}")]
+        public User GetByFirebaseUserId(string id)
+        {
+            return Users.FirstOrDefault(user => user.FirebaseUserId == id);
+        }
+
         /*[HttpGet("test/test")]
         public string GoForIt()
         {
