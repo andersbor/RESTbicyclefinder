@@ -80,10 +80,11 @@ namespace bicyclefinder.Controllers
         {
         }*/
 
-        /*/ DELETE api/<BicyclesController>/5
+        // DELETE api/<BicyclesController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public int Delete(int id)
         {
-        }*/
+            return Bicycles.RemoveAll(bicycle => bicycle.Id == id);
+        }
     }
 }
