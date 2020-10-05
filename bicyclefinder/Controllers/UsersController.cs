@@ -52,6 +52,10 @@ namespace bicyclefinder.Controllers
         [HttpPost]
         public User Post([FromBody] User value)
         {
+            if (Users.Exists(user => user.FirebaseUserId == value.FirebaseUserId))
+            {
+                return null;
+            }
             value.Id = _nextId++;
             Users.Add(value);
             return value;
