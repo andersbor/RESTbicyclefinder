@@ -1,4 +1,4 @@
-﻿namespace bicyclefinder.Controllers
+﻿namespace bicyclefinder.Models
 {
     public class Bicycle
     {
@@ -12,6 +12,8 @@
         public int UserId { get; set; }
 
         public string MissingFound { get; set; }
+
+        public string FirebaseUserId { get; set; }
 
         public override string ToString()
         {

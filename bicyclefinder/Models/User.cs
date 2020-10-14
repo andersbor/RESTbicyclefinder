@@ -1,4 +1,4 @@
-﻿namespace bicyclefinder.Controllers
+﻿namespace bicyclefinder.Models
 {
     public class User
     {
