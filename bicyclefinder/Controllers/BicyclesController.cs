@@ -40,6 +40,13 @@ namespace bicyclefinder.Models
                 bicycle.MissingFound.Equals(missingFound, StringComparison.OrdinalIgnoreCase));
         }
 
+        [HttpGet("firebaseUserId/{firebaseUserId}")]
+        public IEnumerable<Bicycle> GetByFirebaseUserId(string firebaseUserId)
+        {
+            return Bicycles.FindAll(bicycle =>
+                bicycle.FirebaseUserId == firebaseUserId);
+        }
+
         /*/ GET: api/<BicyclesController>
         [HttpGet("lost")]
         public IEnumerable<Bicycle> GetAllMissing()
